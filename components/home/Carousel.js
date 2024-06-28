@@ -19,18 +19,17 @@ const slides = [
 
 const Carousel = () => {
   return (
-    <View style={style.container}>
-      <ImageSlider
-        data={slides}
-        autoPlay
-        localImg={false}
-        caroselImageStyle={{
-          height: 200,
-          resizeMode: "cover",
-          borderRadius: 16,
-        }}
-      />
-    </View>
+    <ImageSlider
+      data={slides}
+      autoPlay
+      localImg={false}
+      caroselImageContainerStyle={style.container}
+      caroselImageStyle={{
+        height: 200,
+        resizeMode: "cover",
+        borderRadius: 16,
+      }}
+    />
   );
 };
 

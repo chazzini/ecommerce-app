@@ -5,6 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 import style from "./home.styles";
 import Welcome from "../components/home/Welcome";
 import Carousel from "../components/home/Carousel";
+import Headings from "../components/home/Headings";
+import ProductRow from "../components/home/ProductRow";
 
 const Home = () => {
   return (
@@ -25,7 +27,17 @@ const Home = () => {
       </View>
       <ScrollView>
         <Welcome />
-        <Carousel />
+        <View
+          style={{
+            paddingHorizontal: 12,
+          }}
+        >
+          <Carousel />
+        </View>
+        <Headings />
+        <ProductRow />
+        {/* added for android scrolling */}
+        <View style={{ height: 150 }}></View>
       </ScrollView>
     </SafeAreaView>
   );

@@ -1,19 +1,26 @@
 import { SIZES } from "../../constants/theme";
 import { StyleSheet } from "react-native";
-import * as styleSearch from "../../screens/search.styles";
 
 const style = StyleSheet.create({
   container: {
     width: "100%",
+    marginTop: SIZES.xLarge,
   },
-  welcomeText: (color, top) => ({
+
+  title: (color, top) => ({
     fontFamily: "bold",
-    fontSize: SIZES.xxLarge,
+    fontSize: SIZES.xLarge,
     marginTop: top,
     marginHorizontal: 12,
     color,
+    lineHeight: 24,
   }),
-  ...styleSearch.default,
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+    marginHorizontal: SIZES.small,
+  },
 });
 
 export default style;
