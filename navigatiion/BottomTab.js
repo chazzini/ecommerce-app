@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Profile from "../screens/Profile";
 import Search from "../screens/Search";
 import Home from "../screens/Home";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS } from "../constants/theme";
 
 const screenOptions = {
   tabBarShowLabel: false,
@@ -26,12 +28,48 @@ const BottomTab = () => {
       <Tab.Screen
         name="home"
         component={Home}
-        options={{ tabBarIcon: (focused) => {
-            return <Ionicon
-        } }}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={20}
+                color={focused ? COLORS.primary : COLORS.gray2}
+              />
+            );
+          },
+        }}
       />
-      <Tab.Screen name="search" component={Search} />
-      <Tab.Screen name="profile" component={Profile} />
+      <Tab.Screen
+        name="search"
+        component={Search}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Ionicons
+                name={focused ? "search" : "search-outline"}
+                size={20}
+                color={focused ? COLORS.primary : COLORS.gray2}
+              />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Ionicons
+                name={focused ? "person" : "person-outline"}
+                size={20}
+                color={focused ? COLORS.primary : COLORS.gray2}
+              />
+            );
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 };

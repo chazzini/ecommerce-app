@@ -3,9 +3,16 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import BottomTab from "./navigatiion/BottomTab";
+import ProductDetail from "./screens/ProductDetail";
+import Cart from "./screens/Cart";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   const [num, setNum] = useState(0);
   const [fontsLoaded] = useFonts({
     regular: require("./assets/fonts/Poppins-Regular.ttf"),
@@ -25,35 +32,16 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <View style={styles.container} onLayout={onLoad}>
-      <Text style={styles.fonts}>
-        Open up App.js to start working on your app! {""}
-        {num}
-      </Text>
-      <Button
-        title="+"
-        onPress={() => {
-          setNum((prev) => prev + 1);
-        }}
-      />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="tabs"
+          component={BottomTab}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="details" component={ProductDetail} />
+        <Stack.Screen name="cart" component={Cart} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  fonts: {
-    fontFamily: "bold",
-    fontSize: 36,
-  },
-  normal: {
-    fontFamily: "regular",
-    fontSize: 30,
-  },
-});
