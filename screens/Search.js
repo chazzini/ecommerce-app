@@ -16,7 +16,7 @@ const Search = () => {
     <SafeAreaView>
       <View style={style.searchContainer}>
         <TouchableOpacity>
-          <Feather name="search" size={24} style={style.searchIcon} />
+          <Ionicons name="camera-outline" style={style.searchIcon} size={24} />
         </TouchableOpacity>
         <View style={style.searchWrapper}>
           <TextInput
@@ -32,8 +32,8 @@ const Search = () => {
               navigation.navigate("search");
             }}
           >
-            <Ionicons
-              name="camera-outline"
+            <Feather
+              name="search"
               color={COLORS.offwhite}
               size={SIZES.xLarge}
             />
