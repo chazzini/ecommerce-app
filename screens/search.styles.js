@@ -1,18 +1,7 @@
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import { COLORS, SIZES } from "../../constants/theme";
+import { COLORS, SIZES } from "../constants/theme";
 import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
-  constainer: {
-    width: "100%",
-  },
-  welcomeText: (color, top) => ({
-    fontFamily: "bold",
-    fontSize: SIZES.xxLarge,
-    marginTop: top,
-    marginHorizontal: 12,
-    color,
-  }),
   searchContainer: {
     flexDirection: "row",
     justifyContent: "center",

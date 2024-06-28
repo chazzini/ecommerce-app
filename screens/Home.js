@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  ScrollView,
-  Text,
-  Touchable,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import style from "./home.styles";
-import { COLORS, SIZES } from "../constants/theme";
 import Welcome from "../components/home/Welcome";
 
 const Home = () => {
