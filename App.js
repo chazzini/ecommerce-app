@@ -1,8 +1,6 @@
 import { useFonts } from "expo-font";
-import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTab from "./navigatiion/BottomTab";
@@ -10,10 +8,10 @@ import ProductDetail from "./screens/ProductDetail";
 import Cart from "./screens/Cart";
 
 SplashScreen.preventAutoHideAsync();
+
 export default function App() {
   const Stack = createNativeStackNavigator();
 
-  const [num, setNum] = useState(0);
   const [fontsLoaded] = useFonts({
     regular: require("./assets/fonts/Poppins-Regular.ttf"),
     meduim: require("./assets/fonts/Poppins-Medium.ttf"),
@@ -32,7 +30,7 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <NavigationContainer>
+    <NavigationContainer onReady={onLoad}>
       <Stack.Navigator>
         <Stack.Screen
           name="tabs"
@@ -40,7 +38,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="details" component={ProductDetail} />
-        <Stack.Screen name="cart" component={Cart} />
+        <Stack.Screen
+          name="cart"
+          component={Cart}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
