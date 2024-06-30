@@ -37,7 +37,11 @@ export default function App() {
           component={BottomTab}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="details" component={ProductDetail} />
+        <Stack.Screen
+          name="details"
+          component={ProductDetail}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="cart"
           component={Cart}
